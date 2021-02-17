@@ -1,4 +1,4 @@
-package com.jazzinjars.testorderjupiter.infrastructure.framework;
+package com.jazzinjars.testorderjupiter;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

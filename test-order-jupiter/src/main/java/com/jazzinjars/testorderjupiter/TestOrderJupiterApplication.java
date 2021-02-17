@@ -1,4 +1,4 @@
-package com.jazzinjars.testorderjupiter.infrastructure.framework;
+package com.jazzinjars.testorderjupiter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
