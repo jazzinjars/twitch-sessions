@@ -9,8 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest
 
 class JupiterClassOrderer : ClassOrderer {
 
-    override fun orderClasses(classOrdererContext: ClassOrdererContext?) {
-        classOrdererContext?.classDescriptors?.sortedWith(compareBy { descriptor -> getOrder(descriptor) })
+    override fun orderClasses(classOrdererContext: ClassOrdererContext) {
+        classOrdererContext.classDescriptors.sortedWith(compareBy { descriptor -> getOrder(descriptor) })
+        println("class Descriptors are not sorted :(")
     }
 
     private fun getOrder(classDescriptor: ClassDescriptor): Int {

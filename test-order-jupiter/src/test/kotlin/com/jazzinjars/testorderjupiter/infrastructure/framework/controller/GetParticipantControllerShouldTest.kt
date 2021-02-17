@@ -7,8 +7,8 @@ import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.get
 
-@WebMvcTest(controllers = [GetParticipantController::class])
-class GetParticipantControllerShould {
+@WebMvcTest
+class GetParticipantControllerShouldTest {
 
     @Autowired
     private lateinit var mockMvc: MockMvc
@@ -17,8 +17,8 @@ class GetParticipantControllerShould {
     fun `retrieve participant by DNI`() {
         mockMvc.get("/v1/participants") {
             contentType = MediaType.APPLICATION_JSON
-            param("dni", "12345678L")
             accept = MediaType.APPLICATION_JSON
+            param("dni", "12345678L")
         }.andExpect {
             status { isOk() }
             content { contentType(MediaType.APPLICATION_JSON) }
