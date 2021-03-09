@@ -4,7 +4,8 @@ import io.quarkus.hibernate.orm.panache.kotlin.PanacheEntity
 import javax.persistence.Entity
 
 @Entity
-class Camera: PanacheEntity() {
-    lateinit var model: String
-
-}
+data class Camera(
+    var brand: String = "",
+    var model: String = "",
+    var wishlist: Boolean = true
+) : PanacheEntity()
