@@ -1,5 +1,6 @@
 package com.jazzinjars.controller
 
+import com.jazzinjars.domain.Camera
 import com.jazzinjars.insfrastructure.persistence.CameraRepository
 import javax.inject.Inject
 import javax.transaction.Transactional
@@ -17,6 +18,13 @@ class CameraController {
 
     @GET
     fun getAll(): Response = Response.ok(cameraRepository.listAll()).build()
+
+    @POST
+    @Transactional
+    fun save(camera: Camera): Response {
+        cameraRepository.persist(camera)
+        return Response.ok().build()
+    }
 
     @GET
     @Path("/{id}")
