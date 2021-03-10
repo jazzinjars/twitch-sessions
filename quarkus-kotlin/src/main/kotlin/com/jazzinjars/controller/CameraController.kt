@@ -1,8 +1,6 @@
 package com.jazzinjars.controller
 
 import com.jazzinjars.insfrastructure.persistence.CameraRepository
-import org.springframework.web.bind.annotation.DeleteMapping
-import org.springframework.web.bind.annotation.GetMapping
 import javax.inject.Inject
 import javax.transaction.Transactional
 import javax.ws.rs.*
@@ -18,17 +16,16 @@ class CameraController {
     lateinit var cameraRepository: CameraRepository
 
     @GET
-    @Transactional
     fun getAll(): Response {
         var cameras = cameraRepository.findAll()
         return Response.ok(cameras).build()
     }
 
     @GET
-    @Path("/{brand}")
-    fun getByBrand(@PathParam(value = "brand") brand: String): Response {
-        var cameras = cameraRepository.findByBrand(brand)
-        return Response.ok(cameras).build()
+    @Path("/{id}")
+    fun getById(@PathParam(value = "id") id: Long): Response {
+        var camera = cameraRepository.findById(id)
+        return Response.ok(camera).build()
     }
 
     @DELETE
