@@ -6,5 +6,5 @@ import javax.enterprise.context.ApplicationScoped
 
 @ApplicationScoped
 class CameraRepository: PanacheRepository<Camera> {
-    fun findByBrand(brand: String) = list("brand", brand)
+    fun findByWishlist(wishlist: Boolean) = list("wishlist", wishlist)
 }

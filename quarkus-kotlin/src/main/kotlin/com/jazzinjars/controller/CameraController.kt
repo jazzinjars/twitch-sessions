@@ -16,15 +16,19 @@ class CameraController {
     lateinit var cameraRepository: CameraRepository
 
     @GET
-    fun getAll(): Response {
-        var cameras = cameraRepository.findAll()
-        return Response.ok(cameras).build()
-    }
+    fun getAll(): Response = Response.ok(cameraRepository.listAll()).build()
 
     @GET
     @Path("/{id}")
     fun getById(@PathParam(value = "id") id: Long): Response {
         var camera = cameraRepository.findById(id)
+        return Response.ok(camera).build()
+    }
+
+    @GET
+    @Path("/wishlist/{wish}")
+    fun getByWishlist(@PathParam(value = "wish") wish: Boolean): Response {
+        var camera = cameraRepository.findByWishlist(wish)
         return Response.ok(camera).build()
     }
 
