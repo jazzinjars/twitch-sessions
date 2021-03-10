@@ -30,4 +30,18 @@ class CameraResourceTest {
 
         assertEquals(4, cameras.size)
     }
+
+    @Test
+    @Order(2)
+    internal fun `obtain one camera`() {
+        val id = 1
+        val jsonCamera = get("/cameras/$id")
+            .then()
+            .statusCode(HttpStatus.SC_OK)
+            .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+            .extract().body().jsonPath()
+        var camera = jsonCamera.getObject("", Camera::class.java)
+
+        assertEquals("A7III", camera.model)
+    }
 }
