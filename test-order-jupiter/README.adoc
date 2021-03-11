@@ -1,0 +1,11 @@
+= Test Classes Order Execution with JUnit5
+
+Execute Test classes in the order that we want to.
+
+== Tech Stack
+
+- See link:https://github.com/jazzinjars/twitch-sessions/test-order-jupiter/tree/main/build.gradle.kts[build.gradle.kts] file
+
+
+== How to execute Samples
+
