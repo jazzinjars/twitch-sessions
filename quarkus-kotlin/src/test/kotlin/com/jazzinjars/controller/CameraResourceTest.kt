@@ -14,7 +14,7 @@ import org.junit.jupiter.api.TestMethodOrder
 import javax.ws.rs.core.MediaType
 
 @QuarkusTest
-@QuarkusTestResource(value = DatabaseResource::class)
+//@QuarkusTestResource(value = DatabaseResource::class)
 @TestMethodOrder(value = MethodOrderer::class)
 class CameraResourceTest {
 
@@ -28,7 +28,7 @@ class CameraResourceTest {
             .extract().body().jsonPath()
         var cameras = jsonCameras.getList("", Camera::class.java)
 
-        assertEquals(4, cameras.size)
+        assertEquals(5, cameras.size)
     }
 
     @Test
